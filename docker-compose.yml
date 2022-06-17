@@ -1,0 +1,14 @@
+version: "3"
+services:
+  front:
+    build:
+      context: .
+      dockerfile: ./docker/dev/Dockerfile
+    container_name: acronex_frontend
+    ports:
+      - 3333:3333 # Expone el puerto 3333
+    volumes:      
+      - .:/app/ # Sincroniza entre host y contenedor todo el proyecto      
+      - /app/.nuxt # Excluye de lo que se sincroniza al host vendor      
+      - /app/node_modules # Excluye de lo que se sincroniza al host vendor      
+      - /app/dist # Excluye de lo que se sincroniza al host vendor    
