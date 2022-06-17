@@ -108,7 +108,7 @@ export default {
     getMachines (description) {
       this.isLoading = true
       this.$axios
-        .$get('api/machines',
+        .$get('api/machines-pagination',
           { params: {
               description: description,
               itemsPerPage: this.itemsPerPage,
@@ -164,24 +164,6 @@ export default {
           })
       }
     }
-
-
-    // getMachineData (machineId) {
-    //   await this.$axios.
-    //     $get(`api/last/${machineId}`)
-    //     .then((response) => {
-    //       this.machine.data = response.machineData.machineData
-    //     })
-    //     .catch((error) => {
-    //       const msg = error.message ?? 'Error en servidor'
-    //       this.$buefy.dialog.alert({
-    //         title: 'Error',
-    //         msg,
-    //         type: 'is-danger',
-    //         hasIcon: true
-    //       })
-    //     })
-    // },
   }
 }
 </script>
